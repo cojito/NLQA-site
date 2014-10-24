@@ -10,5 +10,3 @@ class Query(models.Model):
     # def __str__(self):
     # 	q = "Question: " + self.question_text + "\n" + "Answer: " + self.answer_text + "\n"
     #     return q
-
-
