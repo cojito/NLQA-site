@@ -1,5 +1,12 @@
 {% extends "queryapp/base.html" %}
 {% block content %}
-{{ hello }}
+<form  method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
+{{ questionAsked }}
+{{ answer }}
 {% endblock %}
+
 
