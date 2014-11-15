@@ -21,7 +21,9 @@ def home(request):
             answerstring = "Answer: " + main.query(q.cleaned_data['question'])
             # redirect to a new URL:
             #render_to_response("queryapp/home.html", {'questionAsked': questionstring})
-            return render_to_response("queryapp/home.html", {'answer': answerstring})
+	    # Create new question template
+	    q = Question()
+            return render(request, "queryapp/home.html", {'answer': answerstring, 'form': q})
 
     # if a GET (or any other method) we'll create a blank form
     else:
