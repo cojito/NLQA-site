@@ -7,9 +7,8 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
 import sys
-sys.path.append('/Users/Aakash/NLQA/quepy_test')
-import setup
-
+sys.path.append('/home/jcoreyes/NLQA/quepy_test/quepy_api')
+import main
 def home(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -18,8 +17,8 @@ def home(request):
         # check whether it's valid:
         if q.is_valid():
             # process the data in form.cleaned_data as required
-            questionstring = "Question: " + q.cleaned_data['question'] + "\n" 
-            answerstring = "Answer: " + setup.QA(q.cleaned_data['question'])
+            questionstring = "Question: " #+ q.cleaned_data['question'] + "\n" 
+            answerstring = "Answer: " + main.query(q.cleaned_data['question'])
             # redirect to a new URL:
             #render_to_response("queryapp/home.html", {'questionAsked': questionstring})
             return render_to_response("queryapp/home.html", {'answer': answerstring})
